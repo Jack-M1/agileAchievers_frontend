@@ -8,6 +8,11 @@
 <body>
     <h1>Delivery Employees List</h1>
     <table id="delivery-employees-table">
+
+        {% if deliveryEmployees.length == 0 %}
+            <p>No data returned</p>
+        {% endif %}
+        
         <tr>
             <th>Name</th>
             <th>Salary</th>
