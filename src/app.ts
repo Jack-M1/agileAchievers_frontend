@@ -5,6 +5,9 @@ import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
 import { getAllDeliveryEmployees } from "./controllers/DeliveryEmployeeController";
+import { getLoginForm, postLoginForm } from "./controllers/AuthController";
+import { allowRoles } from "./middleware/AuthMiddleware";
+import { UserRole } from "./models/JwtToken";
 
 const app = express();
 
@@ -30,5 +33,9 @@ app.listen(3000, () => {
     console.log('Server started on port 3000');
 });
 
-app.get('/', getAllDatabases);
-app.get('/deliveryEmployees', getAllDeliveryEmployees);
+app.get('/', allowRoles([UserRole.Admin, UserRole.HR, UserRole.Management, UserRole.Sales]) ,getAllDatabases);
+
+app.get('/loginForm', getLoginForm);
+app.post('/loginForm', postLoginForm);
+
+app.get('/deliveryEmployees', allowRoles([UserRole.Admin, UserRole.HR]) ,getAllDeliveryEmployees);

@@ -3,6 +3,15 @@
   "useIncognitoBrowserContext": false
 },
     "urls": [
-        "http://localhost:3000/deliveryEmployees"
+        {
+            "url": "http://localhost:3000/loginForm",
+            "actions": [
+                "set field #username to admin",
+                "set field #password to admin",
+                "click element #submit",
+                "wait for element #delivery-employees-table to be visible"
+            ]
+        },
+        "http://localhost:3000/loginForm"
     ]
 }
