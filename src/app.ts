@@ -5,6 +5,7 @@ import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
 import { getAllDeliveryEmployees } from "./controllers/DeliveryEmployeeController";
+import { getEmployeeForm, postEmployeeForm } from "./controllers/EmployeeController";
 import { getLoginForm, postLoginForm } from "./controllers/AuthController";
 import { allowRoles } from "./middleware/AuthMiddleware";
 import { UserRole } from "./models/JwtToken";
@@ -39,3 +40,5 @@ app.get('/loginForm', getLoginForm);
 app.post('/loginForm', postLoginForm);
 
 app.get('/deliveryEmployees', allowRoles([UserRole.Admin, UserRole.HR]) ,getAllDeliveryEmployees);
+app.get('/employeeForm', getEmployeeForm);
+app.post('/employeeForm', postEmployeeForm);
