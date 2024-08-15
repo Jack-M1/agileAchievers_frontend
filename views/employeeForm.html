@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Delivery Employee</title>
+</head>
+<body>
+    <h1>Create Employee</h1>
+
+    {% if errormessage %}
+        <h3>{{ errormessage }}</h3>
+    {% endif %}
+
+    <form id="deliveryEmployeeForm" class="form" action="/employeeForm" method="post">
+        <h3>
+            <label for="name">
+                Name:
+            </label>
+        </h3>
+        <input id="name" name="name" value="{{name}}" type="text">
+
+        <h3>
+            <label for="salary">
+                Salary:
+            </label>
+        </h3>
+        <input id="salary" name="salary" value="{{salary}}" type="text">
+
+        <h3>
+            <label for="bankAccountNum">
+                Bank Account Number:
+            </label>
+        </h3>
+        <input id="bankAccountNum" name="bankAccountNum" value="{{[bankAccountNum]}}" type="text">
+
+        <h3>
+            <label for="nationalInsuranceNum">
+                National Insurance Number:
+            </label>
+        </h3>
+        <input id="nationalInsuranceNum" name="nationalInsuranceNum" value="{{[nationalInsuranceNum]}}" type="text">
+
+        <h3>
+            <label for="type">
+                Type of Employee
+            </label>
+        </h3>
+        <select name="type" id="type">
+            <option value="1">1 - Delivery Employee</option>
+            <option value="2">2 - Sales Employee</option>
+          </select>
+
+        <br>
+        
+        <button id="submit">Submit</button>
+
+    </form>
+</body>
+</html>

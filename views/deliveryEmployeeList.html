@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Employee List</title>
+</head>
+<body>
+    <h1>Delivery Employees List</h1>
+    <table id="delivery-employees-table">
+        <tr>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Bank Account Number</th>
+            <th>National Insurance Number</th>
+        </tr>
+        {% for deliveryEmployee in deliveryEmployees %}
+            <tr>
+                <td>{{ deliveryEmployee.name }}</td>
+                <td>{{ deliveryEmployee.salary }}</td>
+                <td>{{ deliveryEmployee.bankAccountNum }}</td>
+                <td>{{ deliveryEmployee.nationalInsuranceNum }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
