@@ -5,6 +5,7 @@ import session from "express-session";
 
 import { getAllDatabases } from "./controllers/TestController";
 import { getAllDeliveryEmployees } from "./controllers/DeliveryEmployeeController";
+import { getEmployeeForm, postEmployeeForm } from "./controllers/EmployeeController";
 
 const app = express();
 
@@ -32,3 +33,5 @@ app.listen(3000, () => {
 
 app.get('/', getAllDatabases);
 app.get('/deliveryEmployees', getAllDeliveryEmployees);
+app.get('/employeeForm', getEmployeeForm);
+app.post('/employeeForm', postEmployeeForm);
